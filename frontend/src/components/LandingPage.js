@@ -1,6 +1,6 @@
 import React, { useState,useEffect} from "react";
 import "./LandingPage.css";
-import { getSongs } from "../services/UserService";
+import { getSongsByUserId } from "../services/UserService";
 import CustomCard from "./CustomCard";
 import MusicPlayer from "../util/MusicPlayer";
 
@@ -13,7 +13,7 @@ const LandingPage = () => {
   useEffect(() => {
     const getAllTracks = async () => {
       try {
-        const response = await getSongs()
+        const response = await getSongsByUserId(localStorage.getItem("userId"))
         setTracks(response.data);
         setFilteredTracks(response.data);
       } catch (error) {

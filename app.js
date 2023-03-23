@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config({path:'./config.env'})
 const cors = require('cors');
 const checkAuth = require('./middleware/check-auth');
 const { createUser, loginUser } = require('./controllers/users-controllers');
@@ -28,7 +30,10 @@ app.get('/playlists/:userId',checkAuth, playlistsController.getPlaylistById)
 app.post('/playlists', playlistsController.createPlaylist)
 app.put('/playlists/:userId',playlistsController.updatePlaylist)
 
-const port = 4000;
+if(process.env.NODE_ENV == 'production'){
+  app.use(express.static("frontend/build"))
+}
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
