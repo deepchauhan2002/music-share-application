@@ -1,0 +1,31 @@
+.songs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .left-column {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  
+  .right-column {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+  
+  @media (min-width: 768px) {
+    .left-column {
+      width: 50%;
+      max-width: 50%;
+    }
+    
+    .right-column {
+      width: 50%;
+      max-width: 50%;
+    }
+  }
+  

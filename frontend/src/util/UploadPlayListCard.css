@@ -1,0 +1,102 @@
+.playlist-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* ensure that the border is included in the height */
+    margin-top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    max-width: 100%;
+    background-color: #fff;
+    border: none;
+  }
+  
+  .playlist-card-container h3 {
+    background-color: #f2f2f2;
+    padding: 1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    height: 3rem;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+    font-size: 1.2rem;
+  }
+  input:focus {
+    border-color: #007bff;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .playlist-tracks {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .playlist-tracks h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .track-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    max-width: 500px;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .track-details p {
+    font-size: 1rem;
+    margin-right: 1rem;
+  }
+  
+  button {
+    padding: 0.5rem;
+    background-color: #0097fc;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #c62828;
+  }
+  
