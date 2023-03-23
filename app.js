@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config({path:'./config.env'})
+require('dotenv').config();
 const cors = require('cors');
 const checkAuth = require('./middleware/check-auth');
 const { createUser, loginUser } = require('./controllers/users-controllers');
@@ -9,7 +8,7 @@ const trackController = require('./controllers/track-controller');
 const playlistsController = require('./controllers/playlist-controller');
 const app = express();
 
-mongoose.connect('mongodb+srv://deep:deep@cluster0.xuwb6.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected...'))
   .catch(err => console.log(err));
 
@@ -30,10 +29,13 @@ app.get('/playlists/:userId',checkAuth, playlistsController.getPlaylistById)
 app.post('/playlists', playlistsController.createPlaylist)
 app.put('/playlists/:userId',playlistsController.updatePlaylist)
 
-if(process.env.NODE_ENV == 'production'){
-  app.use(express.static("frontend/build"))
-}
-const port = process.env.PORT || 5000;
+if (process.env.NODE_ENV === 'production') {
+    //*Set static folder up in production
+    app.use(express.static('frontend/build'));
+
+    app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build','index.html')));
+  }
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
